@@ -1,7 +1,3 @@
-"""
-Telegram бот для регистрации и входа
-"""
-
 import json
 import os
 import asyncio
@@ -145,10 +141,8 @@ def main():
 
     print("🚀 Запуск бота...")
 
-    # Создаем приложение
     app = Application.builder().token(TOKEN).build()
 
-    # Добавляем обработчики
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("register", register))
     app.add_handler(CommandHandler("login", login))
@@ -158,9 +152,7 @@ def main():
 
     print("✅ Бот запущен! Напиши /start в Telegram")
 
-    # Для Python 3.14+ нужно создать event loop
     try:
-        # Пытаемся запустить стандартным способом
         app.run_polling()
     except RuntimeError as e:
         if "no current event loop" in str(e):
